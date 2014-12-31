@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+/**
+ * Created by chenglong.wang@yoho.cn on 2014/12/29.
+ * @description: 自定义混合器
+ */
+
+/*
+ * @description:用于生成retina下的图片精灵
+ * @$map:图片精灵
+ * @$sprite:精灵名称
+ * @$horizontal:是否开启水平居中，默认为false，也可以直接传入具体值
+ * @$vertical:是否开启垂直居中，默认为false，也可以传入具体值
+ * @warning:如果使用绝对定位记得给父层position属性加上非static值
+ */
+
+@mixin retina-sprite ($map,$sprite,$horizontal: false,$vertical: false) {
+
+  $width: image-width(sprite-file($map, $sprite));
+  $height: image-height(sprite-file($map, $sprite));
+  //$offsetX: round(nth(sprite-position($map,$sprite),1)/2);
+  $offsetY: ceil(nth(sprite-position($map,$sprite),2)/2);
+
+  //background-repeat: no-repeat;
+  //background-image: sprite-url($map);
+  //background-position: 0 $zoomY;
+  background: sprite-url($map) 0 $offsetY no-repeat;
+
+  $zoomX: ceil(image_width(sprite-path($map))/2);
+  $zoomY: auto;
+  @include background-size($zoomX $zoomY);
+
+  display: block;
+  width: ceil($width/2);
+  height: ceil($height/2)+1;
+
+  @if $horizontal {
+
+    position: absolute;
+    @if $horizontal == true {
+      left: 50%;
+      margin-left: -(round($width/4));
+    }
+    @else{
+      left: $horizontal;
+    }
+  }
+  @if $vertical {
+    position: absolute;
+    @if $vertical == true {
+      top: 50%;
+      margin-top: -(round($height/4));
+    }
+    @else{
+      top: $vertical;
+    }
+  }
+}

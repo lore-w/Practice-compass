@@ -1,0 +1,74 @@
+/**
+ * Created by chenglong.wang@yoho.cn on 2014/12/26.
+ */
+
+@import "compass";
+@import "variable";
+@import "mixins";
+
+@include global-reset();
+
+@include font-face("helvetica-bold",
+  font_files("helvetica-bold-webfont.ttf", "helvetica-bold-webfont.svg", "helvetica-bold-webfont.woff", "helvetica-bold-webfont.woff2")
+);
+@include font-face("helvetica-light",
+  font_files("helvetica-light-webfont.ttf", "helvetica-light-webfont.svg", "helvetica-light-webfont.woff", "helvetica-light-webfont.woff2")
+);
+
+$icons: sprite-map("icons/*.png",$spacing: 3px);
+$icons-other: sprite-map("icons-other/*.png",$spacing: 2px);
+
+//layout
+#mobile-wrap{
+  width: $layout-width;
+  height: auto;
+  margin: 0 auto;
+}
+
+//nav
+.header-nav{
+  width: $nav-width;
+  height: $nav-height;
+  margin: 0 auto;
+  position: relative;
+  >span{
+    @include hide-text();
+  }
+  .nav-bar{
+    @include retina-sprite($icons,nav-bar,0px,true);
+  }
+  .logo{
+    @include retina-sprite($icons,logo,true,true);
+  }
+  .nav-magazine{
+    @include retina-sprite($icons,magazine,true,true);
+  }
+}
+
+//footer
+.home-footer{
+  width: $footer-width;
+  height: $footer-height;
+  background: $color-footer;
+  margin-top: 20px;
+  overflow: hidden;
+  .slide-top,p{
+    text-align: center;
+  }
+  a.slide-top{
+    font-size: 14px;
+    margin-top: 25px;
+    display: block;
+    width: 100%;
+    color: $font-base-color;
+  }
+  p{
+    font-size: 12px;
+    margin-top: 20px;
+    color: tint($font-base-color,60%);
+    line-height: 14px;
+  }
+}
+
+
+

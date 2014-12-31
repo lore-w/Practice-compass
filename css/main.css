@@ -1,0 +1,593 @@
+@charset "UTF-8";
+/**
+ * Created by chenglong.wang@yoho.cn on 2014/12/26.
+ */
+/**
+ * Created by chenglong.wang@yoho.cn on 2014/12/26.
+ */
+/**
+ * Created by chenglong.wang@yoho.cn on 2014/12/26.
+ */
+/**
+ * Created by chenglong.wang@yoho.cn on 2014/12/29.
+ * @description: 自定义混合器
+ */
+/*
+ * @description:用于生成retina下的图片精灵
+ * @$map:图片精灵
+ * @$sprite:精灵名称
+ * @$horizontal:是否开启水平居中，默认为false，也可以直接传入具体值
+ * @$vertical:是否开启垂直居中，默认为false，也可以传入具体值
+ * @warning:如果使用绝对定位记得给父层position属性加上非static值
+ */
+/* line 5, D:/Work/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, D:/Work/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, D:/Work/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, D:/Work/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, D:/Work/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, D:/Work/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, D:/Work/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, D:/Work/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, D:/Work/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+@font-face {
+  font-family: "helvetica-bold";
+  src: url('../fonts/helvetica-bold-webfont.ttf?1419845152') format('truetype'), url('../fonts/helvetica-bold-webfont.svg?1419845152') format('svg'), url('../fonts/helvetica-bold-webfont.woff?1419845152') format('woff'), url('../fonts/helvetica-bold-webfont.woff2?1419845152') format('woff2');
+}
+@font-face {
+  font-family: "helvetica-light";
+  src: url('../fonts/helvetica-light-webfont.ttf?1419847718') format('truetype'), url('../fonts/helvetica-light-webfont.svg?1419847718') format('svg'), url('../fonts/helvetica-light-webfont.woff?1419847718') format('woff'), url('../fonts/helvetica-light-webfont.woff2?1419847718') format('woff2');
+}
+/* line 22, ../sass/base/_public.scss */
+#mobile-wrap {
+  width: 320px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* line 29, ../sass/base/_public.scss */
+.header-nav {
+  width: 290px;
+  height: 44px;
+  margin: 0 auto;
+  position: relative;
+}
+/* line 34, ../sass/base/_public.scss */
+.header-nav > span {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  text-transform: capitalize;
+}
+/* line 37, ../sass/base/_public.scss */
+.header-nav .nav-bar {
+  background: url('../images/icons-sa8724c598e.png') 0 -290px no-repeat;
+  -moz-background-size: 117px auto;
+  -o-background-size: 117px auto;
+  -webkit-background-size: 117px auto;
+  background-size: 117px auto;
+  display: block;
+  width: 20px;
+  height: 21px;
+  position: absolute;
+  left: 0px;
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+}
+/* line 40, ../sass/base/_public.scss */
+.header-nav .logo {
+  background: url('../images/icons-sa8724c598e.png') 0 -210px no-repeat;
+  -moz-background-size: 117px auto;
+  -o-background-size: 117px auto;
+  -webkit-background-size: 117px auto;
+  background-size: 117px auto;
+  display: block;
+  width: 53px;
+  height: 38px;
+  position: absolute;
+  left: 50%;
+  margin-left: -27px;
+  position: absolute;
+  top: 50%;
+  margin-top: -18px;
+}
+/* line 43, ../sass/base/_public.scss */
+.header-nav .nav-magazine {
+  background: url('../images/icons-sa8724c598e.png') 0 -248px no-repeat;
+  -moz-background-size: 117px auto;
+  -o-background-size: 117px auto;
+  -webkit-background-size: 117px auto;
+  background-size: 117px auto;
+  display: block;
+  width: 117px;
+  height: 23px;
+  position: absolute;
+  left: 50%;
+  margin-left: -59px;
+  position: absolute;
+  top: 50%;
+  margin-top: -11px;
+}
+
+/* line 49, ../sass/base/_public.scss */
+.home-footer {
+  width: 320px;
+  height: 100px;
+  background: #f5f5f5;
+  margin-top: 20px;
+  overflow: hidden;
+}
+/* line 55, ../sass/base/_public.scss */
+.home-footer .slide-top, .home-footer p {
+  text-align: center;
+}
+/* line 58, ../sass/base/_public.scss */
+.home-footer a.slide-top {
+  font-size: 14px;
+  margin-top: 25px;
+  display: block;
+  width: 100%;
+  color: #000;
+}
+/* line 65, ../sass/base/_public.scss */
+.home-footer p {
+  font-size: 12px;
+  margin-top: 20px;
+  color: #999999;
+  line-height: 14px;
+}
+
+/**
+ * Created by chenglong.wang@yoho.cn on 2014/12/26.
+ */
+/* line 6, ../sass/partial/_index.scss */
+.banner {
+  width: 320px;
+  height: 200px;
+}
+/* line 9, ../sass/partial/_index.scss */
+.banner img {
+  width: 320px;
+  height: 200px;
+  display: block;
+}
+
+/* line 17, ../sass/partial/_index.scss */
+.video {
+  margin: 0 auto;
+  width: 290px;
+  height: 80px;
+  margin-top: 35px;
+  margin-bottom: 20px;
+}
+/* line 23, ../sass/partial/_index.scss */
+.video a {
+  background: url('../images/icons-sa8724c598e.png') 0 -589px no-repeat;
+  -moz-background-size: 117px auto;
+  -o-background-size: 117px auto;
+  -webkit-background-size: 117px auto;
+  background-size: 117px auto;
+  display: block;
+  width: 112px;
+  height: 80px;
+}
+
+/* line 27, ../sass/partial/_index.scss */
+.home-content {
+  margin: 0 auto;
+  width: 290px;
+}
+/* line 30, ../sass/partial/_index.scss */
+.home-content > ul li {
+  width: 290px;
+  height: 405px;
+  margin-bottom: 35px;
+  border-bottom: 2px solid #272727;
+}
+/* line 35, ../sass/partial/_index.scss */
+.home-content > ul li img {
+  width: 290px;
+  height: auto;
+}
+/* line 39, ../sass/partial/_index.scss */
+.home-content > ul li > h2,
+.home-content > ul li > time,
+.home-content > ul li > p {
+  text-align: center;
+  display: block;
+  width: 290px;
+}
+/* line 46, ../sass/partial/_index.scss */
+.home-content > ul li > h2 {
+  line-height: 24px;
+  font-size: 14px;
+  margin-top: 13px;
+  color: #000;
+  font-family: "helvetica-bold";
+}
+/* line 53, ../sass/partial/_index.scss */
+.home-content > ul li > time {
+  font-size: 12px;
+  margin-top: 13px;
+  color: #999999;
+  font-family: "helvetica-light";
+}
+/* line 59, ../sass/partial/_index.scss */
+.home-content > ul li > p {
+  line-height: 18px;
+  font-size: 12px;
+  margin-top: 12px;
+  color: #666666;
+  font-family: "stheiti";
+}
+
+/* line 69, ../sass/partial/_index.scss */
+.follow-us {
+  margin-top: 30px;
+  background: url('../images/icons-other-s648034fb29.png') 0 0 no-repeat;
+  -moz-background-size: 290px auto;
+  -o-background-size: 290px auto;
+  -webkit-background-size: 290px auto;
+  background-size: 290px auto;
+  display: block;
+  width: 290px;
+  height: 148px;
+  border: 1px solid transparent;
+}
+/* line 73, ../sass/partial/_index.scss */
+.follow-us > h2 {
+  font-family: "\u9ED1\u4F53";
+  font-size: 16px;
+  margin-top: 18px;
+  text-align: center;
+  font-weight: bold;
+}
+/* line 80, ../sass/partial/_index.scss */
+.follow-us > ul {
+  margin: 15px 25px 0 25px;
+  height: auto;
+  overflow: hidden;
+}
+/* line 84, ../sass/partial/_index.scss */
+.follow-us > ul li {
+  float: left;
+  margin-right: 32px;
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  text-transform: capitalize;
+}
+/* line 87, ../sass/partial/_index.scss */
+.follow-us > ul li:nth-of-type(4) {
+  margin-right: 0;
+}
+/* line 93, ../sass/partial/_index.scss */
+.follow-us > ul .follow-show a {
+  background: url('../images/icons-sa8724c598e.png') 0 -402px no-repeat;
+  -moz-background-size: 117px auto;
+  -o-background-size: 117px auto;
+  -webkit-background-size: 117px auto;
+  background-size: 117px auto;
+  display: block;
+  width: 34px;
+  height: 35px;
+}
+/* line 98, ../sass/partial/_index.scss */
+.follow-us > ul .follow-sina a {
+  background: url('../images/icons-sa8724c598e.png') 0 -485px no-repeat;
+  -moz-background-size: 117px auto;
+  -o-background-size: 117px auto;
+  -webkit-background-size: 117px auto;
+  background-size: 117px auto;
+  display: block;
+  width: 34px;
+  height: 35px;
+}
+/* line 103, ../sass/partial/_index.scss */
+.follow-us > ul .follow-facebook a {
+  background: url('../images/icons-sa8724c598e.png') 0 -114px no-repeat;
+  -moz-background-size: 117px auto;
+  -o-background-size: 117px auto;
+  -webkit-background-size: 117px auto;
+  background-size: 117px auto;
+  display: block;
+  width: 34px;
+  height: 35px;
+}
+/* line 108, ../sass/partial/_index.scss */
+.follow-us > ul .follow-instagram a {
+  background: url('../images/icons-sa8724c598e.png') 0 -174px no-repeat;
+  -moz-background-size: 117px auto;
+  -o-background-size: 117px auto;
+  -webkit-background-size: 117px auto;
+  background-size: 117px auto;
+  display: block;
+  width: 34px;
+  height: 35px;
+}
+/* line 113, ../sass/partial/_index.scss */
+.follow-us > .rss {
+  margin: 18px 25px 0 25px;
+  height: 21px;
+  border: 1px solid #000;
+  position: relative;
+  font-size: 12px;
+}
+/* line 119, ../sass/partial/_index.scss */
+.follow-us > .rss .rss-btn, .follow-us > .rss input[type='text'] {
+  display: block;
+  height: 21px;
+  line-height: 21px;
+  position: absolute;
+  top: 0;
+}
+/* line 126, ../sass/partial/_index.scss */
+.follow-us > .rss .rss-btn {
+  background: #000;
+  width: 65px;
+  text-align: center;
+  right: 0;
+  color: #fff;
+  font-weight: bold;
+}
+/* line 135, ../sass/partial/_index.scss */
+.follow-us > .rss input[type='text'] {
+  text-indent: 10px;
+  display: block;
+  width: 170px;
+  left: 0;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* line 146, ../sass/partial/_index.scss */
+.switch-page {
+  margin-top: 35px;
+  height: 20px;
+  position: relative;
+}
+/* line 150, ../sass/partial/_index.scss */
+.switch-page > span {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+/* line 154, ../sass/partial/_index.scss */
+.switch-page .switch-prev {
+  background: url('../images/icons-sa8724c598e.png') 0 -333px no-repeat;
+  -moz-background-size: 117px auto;
+  -o-background-size: 117px auto;
+  -webkit-background-size: 117px auto;
+  background-size: 117px auto;
+  display: block;
+  width: 105px;
+  height: 21px;
+  position: absolute;
+  left: 0px;
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+}
+/* line 157, ../sass/partial/_index.scss */
+.switch-page .switch-next {
+  background: url('../images/icons-sa8724c598e.png') 0 -312px no-repeat;
+  -moz-background-size: 117px auto;
+  -o-background-size: 117px auto;
+  -webkit-background-size: 117px auto;
+  background-size: 117px auto;
+  display: block;
+  width: 68px;
+  height: 21px;
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  right: 0;
+}
+
+/* line 164, ../sass/partial/_index.scss */
+.home-download {
+  margin-top: 50px;
+  background: url('../images/icons-other-s648034fb29.png') 0 -148px no-repeat;
+  -moz-background-size: 290px auto;
+  -o-background-size: 290px auto;
+  -webkit-background-size: 290px auto;
+  background-size: 290px auto;
+  display: block;
+  width: 290px;
+  height: 256px;
+  border: 1px solid transparent;
+}
+/* line 168, ../sass/partial/_index.scss */
+.home-download > div {
+  margin: 30px 10px 0 30px;
+  position: relative;
+}
+/* line 171, ../sass/partial/_index.scss */
+.home-download > div h2 {
+  font-family: "helvetica-bold";
+  position: absolute;
+  left: 95px;
+  top: 6px;
+  font-size: 14px;
+}
+/* line 178, ../sass/partial/_index.scss */
+.home-download > div h3 {
+  font-family: "helvetica-light";
+  position: absolute;
+  left: 95px;
+  top: 26px;
+  font-size: 12px;
+}
+/* line 186, ../sass/partial/_index.scss */
+.home-download .boyos-icon {
+  background: url('../images/icons-sa8724c598e.png') 0 -753px no-repeat;
+  -moz-background-size: 117px auto;
+  -o-background-size: 117px auto;
+  -webkit-background-size: 117px auto;
+  background-size: 117px auto;
+  display: block;
+  width: 82px;
+  height: 83px;
+}
+/* line 189, ../sass/partial/_index.scss */
+.home-download .girls-icon {
+  background: url('../images/icons-sa8724c598e.png') 0 -669px no-repeat;
+  -moz-background-size: 117px auto;
+  -o-background-size: 117px auto;
+  -webkit-background-size: 117px auto;
+  background-size: 117px auto;
+  display: block;
+  width: 82px;
+  height: 83px;
+}
+/* line 192, ../sass/partial/_index.scss */
+.home-download .down-btn {
+  background: url('../images/icons-sa8724c598e.png') 0 -35px no-repeat;
+  -moz-background-size: 117px auto;
+  -o-background-size: 117px auto;
+  -webkit-background-size: 117px auto;
+  background-size: 117px auto;
+  display: block;
+  width: 75px;
+  height: 31px;
+  position: absolute;
+  left: 95px;
+  top: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+/* line 4, D:/Work/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/typography/links/_hover-link.scss */
+.home-download .down-btn:hover, .home-download .down-btn:focus {
+  text-decoration: underline;
+}
+
+/**
+ * Created by chenglong.wang@yoho.cn on 2014/12/30.
+ */
+/* line 6, ../sass/partial/_magazine.scss */
+.magazine-banner {
+  width: 220px;
+  height: auto;
+  margin: 0 auto;
+}
+/* line 10, ../sass/partial/_magazine.scss */
+.magazine-banner img {
+  width: 220px;
+  height: 275px;
+  display: block;
+}
+
+/* line 16, ../sass/partial/_magazine.scss */
+.magazine-more {
+  width: 100%;
+  height: 80px;
+  position: relative;
+  overflow: hidden;
+}
+/* line 21, ../sass/partial/_magazine.scss */
+.magazine-more time,
+.magazine-more > span,
+.magazine-more a.buy {
+  text-align: center;
+  display: block;
+}
+/* line 27, ../sass/partial/_magazine.scss */
+.magazine-more time {
+  font-size: 12px;
+  margin-top: 8px;
+  color: #333333;
+}
+/* line 33, ../sass/partial/_magazine.scss */
+.magazine-more > span {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #999999;
+  font-family: "helvetica-light";
+}
+/* line 39, ../sass/partial/_magazine.scss */
+.magazine-more a.buy {
+  background: url('../images/icons-sa8724c598e.png') 0 0 no-repeat;
+  -moz-background-size: 117px auto;
+  -o-background-size: 117px auto;
+  -webkit-background-size: 117px auto;
+  background-size: 117px auto;
+  display: block;
+  width: 89px;
+  height: 35px;
+  position: absolute;
+  left: 50%;
+  margin-left: -44px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 34px;
+  bottom: 0px;
+  color: #fff;
+  text-decoration: none;
+}
+/* line 4, D:/Work/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/typography/links/_hover-link.scss */
+.magazine-more a.buy:hover, .magazine-more a.buy:focus {
+  text-decoration: underline;
+}
