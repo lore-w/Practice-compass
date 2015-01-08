@@ -1,0 +1,32 @@
+/**
+ * Created by chenglong.wang@yoho.cn on 2014/1/6.
+ */
+
+.search{
+  margin: 15px 15px 0 15px;
+  >span{
+    display: block;
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    @include border-radius(20px);
+    border: 1px solid #000;
+    >input[type='text']{
+      width: 100%;
+      height: 100%;
+      font-size: 1.8rem;
+      color: #000;
+      @include box-sizing();
+      padding: 0 15px;
+      border: none;
+      background: none;
+      outline: none;
+    }
+  }
+  .result{
+    color: #999;
+    text-align: center;
+    margin: 15px 0;
+    font-size: 1.4rem;
+  }
+}

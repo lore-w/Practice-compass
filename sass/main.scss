@@ -1,7 +1,31 @@
-/**
+@charset "utf-8";
+/*!
  * Created by chenglong.wang@yoho.cn on 2014/12/26.
  */
 
-@import "base/public";
+
+/*
+ *更多浏览器支持，
+ *可在_variable.scss中配置$supported-browsers
+ */
+
+//reset
+@import "partial/public";
+
+//组件
+@import "partial/components/header-nav";
+@import "partial/components/footer";
+@import "partial/components/side-bar";
+@import "partial/components/download-app";
+@import "partial/components/header-download-app";
+@import "partial/components/login";
+@import "partial/components/search";
+@import "partial/components/comment";
+
+//页面
 @import "partial/index";
 @import "partial/magazine";
+@import "partial/fashion";
+@import "partial/video";
+@import "partial/map";
+@import "partial/about";

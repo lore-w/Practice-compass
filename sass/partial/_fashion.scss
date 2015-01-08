@@ -1,0 +1,125 @@
+@charset "utf-8";
+/**
+ * Created by chenglong.wang@yoho.cn on 2014/1/4.
+ */
+
+.fashion{
+  margin: 0 15px 0 15px;
+  >h2{
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 18px;
+  }
+  >h3{
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 12px;
+  }
+  >p{
+    font-size: 1.4rem;
+    margin-top: 15px;
+    color: #999;
+  }
+  .fashion-banner{
+    width: 100%;
+    height: 169px;
+    position: relative;
+    margin-top: 18px;
+    ul,li{
+      width: 100%;
+      height: 169px;
+      img{
+        width: 100%;
+        height: 100%;
+        display: block;
+        overflow: hidden;
+      }
+    }
+    .fashion-switch{
+      @include retina-sprite($icons,page-opacity);
+      font-size: 1.4rem;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+      line-height: 22px;
+      position: absolute;
+      right: 5px;
+      bottom: 10px;
+    }
+  }
+  .fashion-text{
+    color: #333;
+    line-height: 25px;
+    font-size: 1.6rem;
+    margin-top: 10px;
+  }
+  .tags{
+    position: relative;
+    margin-top: 30px;
+    padding: 0 0 10px 28px;
+    @include box-sizing();
+    &:before{
+      display: block;
+      content: '';
+      @include retina-sprite($icons,tag,0,0);
+    }
+    &:after{
+      display: block;
+      content: '';
+      @include retina-sprite($line,detail-line);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+    ul{
+      font-size: 1.4rem;
+      height: auto;
+      overflow: hidden;
+      li{
+        float: left;
+        margin-right: 25px;
+        margin-bottom: 15px;
+        a{
+          color: #000;
+        }
+      }
+    }
+  }
+}
+//相关推荐
+.recomment{
+  margin: 30px 15px 0 15px;
+  >h2{
+    font-size: 2rem;
+    color: #333;
+  }
+  >ul{
+    margin-top: 12px;
+    li{
+      height: auto;
+      overflow: hidden;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+    }
+    .content-pic{
+      width: 96px;
+      height: 60px;
+      float: left;
+      img{
+        width: 100%;
+        height: 100%;
+        display: block;
+        overflow: hidden;
+      }
+    }
+    .content-text{
+      overflow: hidden;//开启BFC
+      padding-left: 14px;
+      height: 80px;
+      font-size: 1.4rem;
+      line-height: 18px;
+      font-weight: bold;
+    }
+  }
+}

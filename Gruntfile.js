@@ -10,7 +10,7 @@ module.exports = function (grunt) {
 		    options: {
 				server: {
 					baseDir: "./",
-					index: "magazine.html"
+					index: "index.html"
 				},
 	        	watchTask: true,
 	        	open: true,

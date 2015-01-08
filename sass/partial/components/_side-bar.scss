@@ -1,0 +1,124 @@
+/**
+ * Created by chenglong.wang@yoho.cn on 2014/1/6.
+ */
+
+html,body{
+  overflow: hidden;
+  min-height: 100%;
+}
+#mobile-wrap{
+  position: relative;
+  top: 0;
+  //left: 278px;
+  left: 0;
+}
+
+#side-bar{
+  left: -278px;
+  width: 278px;
+  min-height: 100%;
+  background: #272727;
+  position: absolute;
+  top: 0;
+  @include box-sizing();
+  padding: 0 15px;
+  .side-bar-header{
+    border-bottom: 1px solid #505050;
+    height: 45px;
+    line-height: 45px;
+    color: #d7d7d7;
+    font-size: 1.8rem;
+    >span{
+      display: block;
+      width: 31px;
+      height: 31px;
+      float: left;
+      margin-right: 15px;
+      margin-top: 7px;
+      img{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: block;
+      }
+    }
+  }
+  >ul{
+    margin-top: 20px;
+    border-bottom: 1px solid #505050;
+    li{
+      position: relative;
+      height: 51px;
+      @include hide-text();
+      a{
+        margin-left: 3px;
+      }
+      @each $i, $side in (1: home, 2: video, 3: fashion, 4: sports, 5: life-style, 6: map, 7: magazine) {
+        &:nth-of-type(#{$i}){
+          &:before{
+            content: '';
+            @include retina-sprite($side-bar,#{$side}-logo);
+            float: left;
+          }
+          a{
+            @include retina-sprite($side-bar,#{$side});
+            float: left;
+          }
+        }
+      }
+    }
+  }
+  .side-bar-footer{
+    ul{
+      height: auto;
+      overflow: hidden;
+      text-align: center;
+      color: #ababab;
+      font-weight: bold;
+      &:nth-of-type(1){
+        width: 180px;
+        margin: 30px auto 0 auto;
+        li{
+          float: left;
+          font-size: 1.8rem;
+          width: 50%;
+          position: relative;
+          &:nth-of-type(1){
+            &:after{
+              content: '';
+              display: block;
+              width: 1px;
+              height: 100%;
+              background: #464646;
+              position: absolute;
+              top: 0;
+              right: 0;
+            }
+          }
+          &:nth-of-type(2){
+            &:after{
+              content: '';
+              @include retina-sprite($side-bar,language,false,true);
+              right: 0;
+            }
+          }
+        }
+      }
+      &:nth-of-type(2){
+        margin: 30px auto 0 auto;
+        li{
+          width: 25%;
+          float: left;
+        }
+      }
+      &:nth-of-type(3){
+        margin: 20px auto 0 auto;
+        width: 50%;
+        li{
+          width: 50%;
+          float: left;
+        }
+      }
+    }
+  }
+}

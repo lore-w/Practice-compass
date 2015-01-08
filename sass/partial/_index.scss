@@ -2,77 +2,76 @@
  * Created by chenglong.wang@yoho.cn on 2014/12/26.
  */
 
+
 //banner
 .banner{
-  width: $banner-width;
-  height: $banner-height;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 35px;
   img{
-    width: $banner-width;
-    height: $banner-height;
+    width: 100%;
+    height: 200px;
     display: block;
+    overflow: hidden;
   }
 }
 
 //video
 .video{
-  margin: 0 auto;
-  width: $vide-width;
-  height: $video-height;
-  margin-top: 35px;
-  margin-bottom: 20px;
+  height: 80px;
+  margin: 0 15px 0 15px;
   a{
-    @include retina-sprite($icons,video);
+    @include retina-sprite($icons,video-slide);
   }
 }
+
+//content
 .home-content{
-  margin: 0 auto;
-  width: $home-content-width;
+  margin: 20px 15px 0 15px;
   >ul li{
-    width: $home-content-width;
-    height: $home-content-height;
+    width: 100%;
+    height: 405px;
     margin-bottom: 35px;
-    border-bottom: 2px solid #272727;
+    border-bottom: 1px solid #272727;
     img{
-      width: $home-content-width;
+      width: 100%;
       height: auto;
     }
-    >h2,
-    >time,
-    >p{
+    >h2,>time{
+      //font-family: $font-hta;
+      margin-top: 15px;
       text-align: center;
       display: block;
-      width: $home-content-width;
+      width: 100%;
     }
     >h2{
       line-height: 24px;
-      font-size: 14px;
-      margin-top: 13px;
-      color: $font-base-color;
-      font-family: "helvetica-bold";
+      font-size: 2rem;
+      font-weight: bold;
+      color: #000;
     }
     >time{
-      font-size: 12px;
-      margin-top: 13px;
-      color: tint($font-base-color,60%);
-      font-family: "helvetica-light";
+      font-size: 1.4rem;
+      font-weight: normal;
+      color: #999;
     }
     >p{
       line-height: 18px;
-      font-size: 12px;
       margin-top: 12px;
-      color: tint($font-base-color,40%);
-      font-family: "stheiti";
+      text-align: center;
+      display: block;
+      width: 100%;
+      color: #666;
     }
   }
 }
 //follow-us
 .follow-us{
   margin-top: 30px;
-  @include retina-sprite($icons-other,comment);
+  @include retina-sprite($line,comment);
   border: 1px solid transparent;
   >h2{
-    font-family: "\u9ED1\u4F53";
-    font-size: 16px;
+    font-size: 1.8rem;
     margin-top: 18px;
     text-align: center;
     font-weight: bold;
@@ -89,24 +88,10 @@
       }
       @include hide-text();
     }
-    .follow-show{
-      a{
-        @include retina-sprite($icons,show);
-      }
-    }
-    .follow-sina{
-      a{
-        @include retina-sprite($icons,sina);
-      }
-    }
-    .follow-facebook{
-      a{
-        @include retina-sprite($icons,facebook);
-      }
-    }
-    .follow-instagram{
-      a{
-        @include retina-sprite($icons,instagram);
+
+    @each $follow in show, sina, facebook, instagram {
+      .follow-#{$follow} {
+        @include retina-sprite($icons,#{$follow});
       }
     }
   }
@@ -115,7 +100,7 @@
     height: 21px;
     border: 1px solid #000;
     position: relative;
-    font-size: 12px;
+    font-size: 1.4rem;
     .rss-btn,input[type='text']{
       display: block;
       height: 21px;
@@ -128,9 +113,8 @@
       width: 65px;
       text-align: center;
       right: 0;
-      color: $font-white-color;
+      color: #fff;
       font-weight: bold;
-
     }
     input[type='text']{
       text-indent: 10px;
@@ -151,54 +135,20 @@
     @include hide-text();
     cursor: pointer;
   }
-  .switch-prev{
-    @include retina-sprite($icons,prev,0px,true);
-  }
-  .switch-next{
-    @include retina-sprite($icons,next,false,true);
-    right: 0;
-  }
-}
+  @each $switch in prev, next {
+    .switch-#{$switch} {
+      @include retina-sprite($icons,#{$switch},false,true);
+    }
+    @if $switch == prev {
+      .switch-#{$switch} {
+        left: 0;
+      }
+    }
 
-//download
-.home-download{
-  margin-top: 50px;
-  @include retina-sprite($icons-other,follow);
-  border: 1px solid transparent;
-  >div{
-    margin: 30px 10px 0 30px;
-    position: relative;
-    h2{
-      font-family: "helvetica-bold";
-      position: absolute;
-      left: 95px;
-      top: 6px;
-      font-size: 14px;
+    @if $switch == next {
+      .switch-#{$switch} {
+        right: 0;
+      }
     }
-    h3{
-      font-family: "helvetica-light";
-      position: absolute;
-      left: 95px;
-      top: 26px;
-      font-size: 12px;
-    }
-  }
-  .boyos-icon{
-   @include retina-sprite($icons,yoho);
-  }
-  .girls-icon{
-    @include retina-sprite($icons,yoho-girl);
-  }
-  .down-btn{
-    @include retina-sprite($icons,download);
-    position: absolute;
-    left: 95px;
-    top: 50px;
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 30px;
-    color: $font-white-color;
-    text-align: center;
-    @include hover-link();
   }
 }

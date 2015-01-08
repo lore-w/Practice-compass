@@ -1,0 +1,24 @@
+/**
+ * Created by chenglong.wang@yoho.cn on 2014/1/6.
+ */
+
+.home-footer{
+  width: $footer-width;
+  height: $footer-height;
+  background: $color-footer;
+  margin-top: 20px;
+  overflow: hidden;
+  text-align: center;
+  .come-back{
+    font-size: 1.4rem;
+    margin-top: 25px;
+    display: block;
+    width: 100%;
+    color: #000;
+  }
+  >p{
+    color: #999;
+    margin-top: 20px;
+    line-height: 14px;
+  }
+}

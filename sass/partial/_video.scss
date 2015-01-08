@@ -1,0 +1,37 @@
+/**
+ * Created by chenglong.wang@yoho.cn on 2014/1/4.
+ */
+
+.submenu{
+  height: 40px;
+  line-height: 40px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  ul{
+    height: 100%;
+    li{
+      float: left;
+      height: 100%;
+      &:nth-of-type(1){
+        a{
+          color: #000;
+        }
+      }
+    }
+    a{
+      color: #8c8c8c;
+      @include hover-link();
+      padding: 0 20px;
+      display: block;
+      height: 100%;
+      position: relative;
+      &:after{
+        content: '/';
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+}

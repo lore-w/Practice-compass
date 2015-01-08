@@ -1,0 +1,26 @@
+/**
+ * Created by chenglong.wang@yoho.cn on 2014/12/26.
+ */
+
+@import "compass";
+@import "../base/mixins";
+@import "../base/sprite";
+@import "../base/variable";
+
+@include global-reset();
+
+html,body{
+  color: $font-color;
+  font-size: $font-size;
+  font-family: $font-default;
+}
+
+#mobile-wrap{
+  width: $layout-width;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+

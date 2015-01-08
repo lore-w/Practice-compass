@@ -1,0 +1,47 @@
+/**
+ * Created by chenglong.wang@yoho.cn on 2014/1/6.
+ */
+
+.home-download{
+  margin: 50px auto 0 auto;
+  @include retina-sprite($line,follow);
+  border: 1px solid transparent;
+  >div{
+    margin: 30px 10px 0 30px;
+    position: relative;
+    h2,h3{
+      //font-family: $font-hta;
+      position: absolute;
+      left: 95px;
+    }
+    h2{
+      top: 6px;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    h3{
+      top: 26px;
+      font-size: 1.4rem;
+      font-weight: normal;
+    }
+    @for $i from 1 through 2 {
+      &:nth-of-type(#{$i}) {
+        >span.app-icon{
+          @include retina-sprite($icons,app-#{$i});
+        }
+      }
+    }
+  }
+  .down-btn{
+    @include retina-sprite($icons,download);
+    position: absolute;
+    left: 95px;
+    top: 50px;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+    @include hover-link();
+  }
+}
