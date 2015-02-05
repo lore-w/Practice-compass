@@ -5,7 +5,7 @@ module.exports = function (grunt) {
 		//grunt-browser-sync
 		browserSync: {
 		    bsFiles: {
-		        src : ['*.html','css/main.css']
+		        src : ['*.html','css/main.css','**/*.js']
 		    },
 		    options: {
 				server: {
@@ -21,7 +21,8 @@ module.exports = function (grunt) {
 		compass: {
 			dist: {
 				options: {
-					config: 'config.rb'
+					config: 'config.rb',
+					sourcemap: true
 				}
 			}
 		},
@@ -40,4 +41,4 @@ module.exports = function (grunt) {
 		}
 	});
 	grunt.registerTask('w',['browserSync','watch']);
-}
+};
