@@ -1,5 +1,9 @@
-/**
- * Created by chenglong.wang@yoho.cn on 2014/1/4.
+@charset "utf-8";
+/*
+ * @description: 关于我们样式
+ * @author: LrEmo
+ * @date: 2014/12/25.
+ * @mail: metro-cpu@hotmail.com
  */
 
 .about{
@@ -25,38 +29,6 @@
     line-height: 28px;
     &:nth-of-type(1){
       margin-bottom: 30px;
-    }
-  }
-}
-.about-app{
-  margin-top: 55px;
-  text-align: center;
-  >h2{
-    font-size: 1.8rem;
-    font-weight: bold;
-  }
-  li{
-    position: relative;
-    margin-bottom: 38px;
-    overflow: hidden;
-    &:nth-of-type(3){
-      margin-bottom: 0;
-    }
-    @each $about-app in about-show, about-yoho, about-girl {
-      .#{$about-app} {
-        @include retina-sprite($icons,#{$about-app},true,0);
-      }
-    }
-
-    h3{
-      //font-family: $font-hta;
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin-top: 80px;
-    }
-    p{
-      font-size: 1.4rem;
-      margin-top: 11px;
     }
   }
 }

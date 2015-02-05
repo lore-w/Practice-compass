@@ -1,5 +1,9 @@
-/**
- * Created by chenglong.wang@yoho.cn on 2014/1/4.
+@charset "utf-8";
+/*
+ * @description: 视频页样式
+ * @author: LrEmo
+ * @date: 2014/12/25.
+ * @mail: metro-cpu@hotmail.com
  */
 
 .submenu{
@@ -7,15 +11,17 @@
   line-height: 40px;
   font-size: 1.6rem;
   font-weight: bold;
+  overflow: hidden;
+  width: 100%;
   ul{
-    height: 100%;
-    li{
+    height: 40px;
+    .swiper-slide{
       float: left;
-      height: 100%;
-      &:nth-of-type(1){
-        a{
-          color: #000;
-        }
+      height: 40px;
+    }
+    .current{
+      a{
+        color: #000;
       }
     }
     a{
@@ -31,6 +37,15 @@
         position: absolute;
         right: 0;
         top: 0;
+      }
+    }
+    li{
+      &:nth-last-of-type(1){
+        a{
+          &:after{
+            display: none;
+          }
+        }
       }
     }
   }

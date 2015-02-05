@@ -1,27 +1,21 @@
-/**
- * Created by chenglong.wang@yoho.cn on 2014/1/6.
+@charset "utf-8";
+/*
+ * @description: 侧边栏组件
+ * @author: LrEmo
+ * @date: 2014/12/25.
+ * @mail: metro-cpu@hotmail.com
  */
 
-html,body{
-  overflow: hidden;
-  min-height: 100%;
-}
-#mobile-wrap{
-  position: relative;
-  top: 0;
-  //left: 278px;
-  left: 0;
-}
-
 #side-bar{
-  left: -278px;
-  width: 278px;
   min-height: 100%;
+  width: 248px;
+  height: 580px;
   background: #272727;
-  position: absolute;
   top: 0;
-  @include box-sizing();
+  left: 0;
+  position: absolute;
   padding: 0 15px;
+  visibility: hidden;
   .side-bar-header{
     border-bottom: 1px solid #505050;
     height: 45px;
@@ -59,10 +53,16 @@ html,body{
             content: '';
             @include retina-sprite($side-bar,#{$side}-logo);
             float: left;
+            background: none;
           }
           a{
             @include retina-sprite($side-bar,#{$side});
             float: left;
+          }
+        }
+        &:nth-of-type(#{$i}).nav-active{
+          &:before{
+            @include retina-sprite($side-bar,#{$side}-logo);
           }
         }
       }
@@ -83,6 +83,9 @@ html,body{
           font-size: 1.8rem;
           width: 50%;
           position: relative;
+          a{
+            color: #fff;
+          }
           &:nth-of-type(1){
             &:after{
               content: '';

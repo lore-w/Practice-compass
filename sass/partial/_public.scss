@@ -1,5 +1,9 @@
-/**
- * Created by chenglong.wang@yoho.cn on 2014/12/26.
+@charset "utf-8";
+/*
+ * @description: 公用样式
+ * @author: LrEmo
+ * @date: 2014/12/25.
+ * @mail: metro-cpu@hotmail.com
  */
 
 @import "compass";
@@ -9,17 +13,58 @@
 
 @include global-reset();
 
+a{
+  @include unstyled-link();
+}
 html,body{
   color: $font-color;
   font-size: $font-size;
   font-family: $font-default;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  position: relative;
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-#mobile-wrap{
+.mobile-wrap{
   width: $layout-width;
   height: auto;
   margin: 0 auto;
+  background: $color-background;
   position: relative;
+  z-index: 1000;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  &:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    background: rgba(0,0,0,0.2);
+    content: '';
+    opacity: 0;
+    z-index: 3000;
+    -webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+    transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+  }
+}
+
+.menuOpen {
+  .mobile-wrap {
+    -webkit-transform: translate3d(270px, 0, 0);
+    transform: translate3d(270px, 0, 0);
+    &:before {
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      -webkit-transition: opacity 0.5s;
+      transition: opacity 0.5s;
+    }
+  }
 }
 
 

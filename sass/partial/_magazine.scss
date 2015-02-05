@@ -1,17 +1,46 @@
-/**
- * Created by chenglong.wang@yoho.cn on 2014/12/30.
+@charset "utf-8";
+/*
+ * @description: 杂志页样式
+ * @author: LrEmo
+ * @date: 2014/12/25.
+ * @mail: metro-cpu@hotmail.com
  */
 
 //banner
 .magazine-banner{
   width: 220px;
   height: auto;
-  margin: 0 auto;
-  img{
+  margin: 11px auto 0 auto;
+  position: relative;
+  .swiper-container,.swiper-slide,img{
     width: 220px;
     height: 275px;
     display: block;
     overflow: hidden;
+  }
+  .swiper-slide{
+    float: left;
+  }
+  .pagination-wrap{
+    text-align: center; //important(这样可以居中)
+    margin-top: 10px;
+    .pagination{
+      display: inline-block; //important(这样可以居中)
+      height: auto;
+      overflow: hidden;
+    }
+  }
+
+  .swiper-pagination-switch{
+    @include retina-sprite($icons,normal-new);
+    margin-right: 8px;
+    float: left;
+    &:nth-last-of-type(1){
+      margin-right: 0;
+    }
+    &.swiper-active-switch{
+      @include retina-sprite($icons,active-new);
+    }
   }
 }
 .magazine-more{
@@ -26,10 +55,12 @@
   time{
     margin-top: 8px;
     color: #333;
+    font-size: 1.2rem;
   }
   >span{
     margin-top: 5px;
     color: #666;
+    font-size: 1.2rem;
   }
   a.buy{
     @include retina-sprite($icons,buy,true,false);
@@ -42,31 +73,56 @@
   }
 }
 
-%magazine-time{
-  display: block;
+//公用样式
+.magazine-public-style{
+  height: 180px;
   width: 100%;
-  margin-top: 8px;
-  //font-family: $font-hta;
-  text-align: center;
-  font-weight: bold;
-}
-.magazine-slide{
-  height: auto;
-  margin: 38px 15px 0 15px;
-  li{
-    width: 127px;
-    height: auto;
+  //margin: 38px 15px 0 15px;
+  overflow: hidden;
+  li.swiper-slide{
+    width: 131px;
+    height: 180px;
+    float: left;
+    &:nth-last-of-type(1){
+      width: 121px;
+    }
+    a{
+      display: block;
+      height: auto;
+      overflow: hidden;
+      position: relative;
+      &.magazine-special{
+        &:after{
+          content: '';
+          @include retina-sprite($icons,special-new,0,0);
+        }
+      }
+    }
     img{
-      width: 100%;
+      width: 121px;
       height: 160px;
+      display: block;
+      overflow: hidden;
     }
     time{
-      @extend %magazine-time;
+      display: block;
+      margin-top: 8px;
+      text-align: center;
+      font-weight: bold;
+      width: 121px;
+      font-size: 1.2rem;
     }
   }
 
 }
-//e-zine
+
+#mobile .magazine-slide{
+  margin: 38px 15px 0 15px;
+  width: auto;
+}
+
+
+//e-zine中的滚动图片
 .e-zine{
   margin: 55px 15px 0 15px;
   overflow: hidden;
@@ -83,27 +139,43 @@
   }
   .zine-boy,.zine-special{
     h3{
-      //font-family: $font-hta;
       font-size: 1.4rem;
       color: #1c1c1b;
       font-weight: bold;
     }
-    ul{
+    .magazine-public-style{
       margin-top: 10px;
-      li{
-        width: 121px;
-        height: auto;
-        img{
-          width: 121px;
-          height: 160px;
-        }
-        time{
-          @extend %magazine-time;
-        }
-      }
     }
   }
 }
+
+//rules中的滚动图片
+.magazine-rules{
+  margin: 40px 15px 0 15px;
+  position: relative;
+  overflow: hidden;
+  h2{
+    @include retina-sprite($line,rules,true,0);
+    @include hide-text();
+  }
+  .magazine-public-style{
+    margin-top: 36px;
+    height: 200px;
+    li.swiper-slide{
+      height: 200px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
 //boy-app
 .boy-app{
   margin: 30px 15px 0 15px;
@@ -155,28 +227,5 @@
   }
 }
 
-//rules
-.magazine-rules{
-  margin: 40px 15px 0 15px;
-  position: relative;
-  overflow: hidden;
-  h2{
-    @include retina-sprite($line,rules,true,0);
-    @include hide-text();
-  }
-  ul{
-    margin-top: 36px;
-    li{
-      width: 121px;
-      height: auto;
-      img{
-        width: 121px;
-        height: 160px;
-      }
-      span{
-        @extend %magazine-time;
-      }
-    }
-  }
-}
+
 

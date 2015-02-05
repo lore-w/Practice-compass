@@ -1,6 +1,9 @@
 @charset "utf-8";
 /*!
- * Created by chenglong.wang@yoho.cn on 2014/12/26.
+ * @description: 样式表
+ * @author: LrEmo
+ * @date: 2014/12/25.
+ * @mail: metro-cpu@hotmail.com
  */
 
 
@@ -21,6 +24,8 @@
 @import "partial/components/login";
 @import "partial/components/search";
 @import "partial/components/comment";
+@import "partial/components/follow-us";
+@import "partial/components/switch-page";
 
 //页面
 @import "partial/index";
@@ -29,3 +34,6 @@
 @import "partial/video";
 @import "partial/map";
 @import "partial/about";
+
+//插件
+@import "partial/plugin/idangerous.swiper";
