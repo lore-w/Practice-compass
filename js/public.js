@@ -81,4 +81,33 @@ define(function (require,exports,module) {
             }
         }
     });
+
+    //Login
+    var login = new Hammer(document.getElementById('mobile'));
+    login.on('tap',function (event) {
+        if ($(event.target).is($('.side-bar-header'))) {
+            var creatLogin =
+                '<div class="login">'+
+                    '<h2 id="close">登录</h2>'+
+                    '<ul>'+
+                        '<li><input type="text" placeholder="YOHO账号"/></li>'+
+                        '<li><input type="text" placeholder="密码"/></li>'+
+                    '</ul>'+
+                    '<p>已注册过有货、SHOW、友和市集，可直接登录</p>'+
+                    '<div class="login-btn">登录</div>'+
+                    '<div class="other-login">'+
+                        '<span>新浪微博登录</span>'+
+                        '<span>QQ登录</span>'+
+                        '<span>Facebook登录</span>'+
+                    '</div>'+
+                '</div>';
+            $(creatLogin).appendTo('body').fadeIn();
+        }
+    });
+    login.on('tap',function (event) {
+        if ($(event.target).is($('#close'))) {
+            $('.login').fadeOut().remove();
+            return false;
+        }
+    });
 });

@@ -5,33 +5,70 @@
     <title>BOY-H5</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0 user-scalable=no">
     <link rel="stylesheet" href="./css/main.css"/>
+    <script src="./js/lib/sea-2.3.0.js"></script>
+    <script>
+        seajs.use('public');
+    </script>
 </head>
-<body>
+<body id="mobile">
     <!--wrap-->
-    <div id="mobile-wrap">
-        <div class="header-download">
-            <span class="tip-pic">YOHO BOYS</span>
-            <div class="tip-info">
-                <h2>YOHO!BOYS</h2>
-                <p>We love to Play & Learn</p>
-                <span>OPEN</span>
-            </div>
-            <span class="tip-c">关闭</span>
-        </div>
+    <div class="mobile-wrap" id="mobile-wrap">
         <!--nav-->
         <nav class="header-nav">
             <span class="nav-bar">nav展开按钮</span>
             <span class="nav-logo">Logo</span>
         </nav>
         <!--comment-->
-        <div class="has-comment">
-            <span class="has-user">
+        <div class="edit-comment">
+            <span class="edit-user">
                 <img src="./images/temp/user-pic.png" alt=""/>
             </span>
-            <div class="has-comment-info">
+            <div class="edit-comment-info">
                 <h2>Hello</h2>
                 <p>Hello,这里是测试的文字...</p>
                 <span>留言118</span>
+            </div>
+        </div>
+        <div class="comment">
+            <div class="comment-list">
+                <ul>
+                    <li>
+                        <div class="comment-user-pic comment-qq">
+                            <img src="./images/temp/user-pic.png" alt=""/>
+                        </div>
+                        <div class="comment-info">
+                            <span>Hello</span>
+                            <p>这里是评论的信息</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="comment-user-pic comment-weibo">
+                            <img src="./images/temp/user-pic.png" alt=""/>
+                        </div>
+                        <div class="comment-info">
+                            <span>Hello</span>
+                            <p>这里是评论的信息</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="comment-user-pic comment-yoho">
+                            <img src="./images/temp/user-pic.png" alt=""/>
+                        </div>
+                        <div class="comment-info">
+                            <span>Hello</span>
+                            <p>这里是评论的信息</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="view-more">view more</div>
+            </div>
+            <div class="publish">
+                <div class="publish-area">
+                    <textarea name="" id="" >说点什么...</textarea>
+                </div>
+                <div class="publish-info">
+                    <span class="publish-btn">Publish</span>
+                </div>
             </div>
         </div>
         <!--content-->
@@ -65,6 +102,39 @@
             <a class="come-back" href="#">返回顶部</a>
             <p>CopyRight © 2014 南京新与力文化传播有限公司<br />苏ICP备09011225号</p>
         </footer>
+    </div>
+    <div id="side-bar">
+        <div class="side-bar-header">
+            <span>
+                <img src="./images/login-user.png" alt=""/>
+            </span>
+            登录
+        </div>
+        <ul>
+            <li class="nav-active"><a href="./index.html">首页</a></li>
+            <li><a href="./video.html">视频</a></li>
+            <li><a href="./detail.html">时尚</a></li>
+            <li><a href="./detail.html">运动</a></li>
+            <li><a href="./detail.html">生活</a></li>
+            <li><a href="./map.html">地图</a></li>
+            <li><a href="./magazine.html">杂志</a></li>
+        </ul>
+        <div class="side-bar-footer">
+            <ul>
+                <li>搜索</li>
+                <li>简体</li>
+            </ul>
+            <ul>
+                <li><a href="./about.html">关于我们</a></li>
+                <li><a href="./about.html">联系我们</a></li>
+                <li><a href="./about.html">版权申明</a></li>
+                <li><a href="./about.html">隐私条款</a></li>
+            </ul>
+            <ul>
+                <li><a href="./about.html">意见反馈</a></li>
+                <li><a href="./about.html">友情链接</a></li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>

@@ -5,27 +5,31 @@
     <title>BOY-H5</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0 user-scalable=no">
     <link rel="stylesheet" href="./css/main.css"/>
+    <script src="./js/lib/sea-2.3.0.js"></script>
+    <script>
+        seajs.use('public');
+    </script>
 </head>
-<body>
+<body id="mobile">
     <!--wrap-->
-    <div id="mobile-wrap">
+    <div class="mobile-wrap" id="mobile-wrap">
         <!--nav-->
         <nav class="header-nav">
             <span class="nav-bar">nav展开按钮</span>
             <span class="nav-fashion">Fashion</span>
         </nav>
         <!--detail-->
-        <div class="fashion">
+        <div class="detail">
             <h2>插绘师物语</h2>
             <h3>The Return Of Stylish Drawing</h3>
             <p>By hanzhisa / Fashion , Feature / 11 20 2014  </p>
-            <div class="fashion-banner">
+            <div class="detail-banner">
                 <ul>
                     <li><a href=""><img src="./images/temp/h5-home_09.jpg" alt=""/></a></li>
                 </ul>
-                <div class="fashion-switch">1/23</div>
+                <div class="detail-switch">1/23</div>
             </div>
-            <div class="fashion-text">
+            <div class="detail-text">
                 <p>报道上世纪六七十年代流行文化的相关出版物、联同一众于1960年代出道的元老级插画师.报道上世纪六七十年代流行文化的相关出版物、联同一众于1960年代出道的元老级插画师.</p>
             </div>
             <div class="tags">
@@ -151,6 +155,39 @@
             <a class="come-back" href="#">返回顶部</a>
             <p>CopyRight © 2014 南京新与力文化传播有限公司<br />苏ICP备09011225号</p>
         </footer>
+    </div>
+    <div id="side-bar">
+        <div class="side-bar-header">
+            <span>
+                <img src="./images/login-user.png" alt=""/>
+            </span>
+            登录
+        </div>
+        <ul>
+            <li><a href="./index.html">首页</a></li>
+            <li><a href="./video.html">视频</a></li>
+            <li class="nav-active"><a href="./detail.html">时尚</a></li>
+            <li><a href="./detail.html">运动</a></li>
+            <li><a href="./detail.html">生活</a></li>
+            <li><a href="./map.html">地图</a></li>
+            <li><a href="./magazine.html">杂志</a></li>
+        </ul>
+        <div class="side-bar-footer">
+            <ul>
+                <li>搜索</li>
+                <li>简体</li>
+            </ul>
+            <ul>
+                <li><a href="./about.html">关于我们</a></li>
+                <li><a href="./about.html">联系我们</a></li>
+                <li><a href="./about.html">版权申明</a></li>
+                <li><a href="./about.html">隐私条款</a></li>
+            </ul>
+            <ul>
+                <li><a href="./about.html">意见反馈</a></li>
+                <li><a href="./about.html">友情链接</a></li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
