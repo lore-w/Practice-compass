@@ -6,6 +6,7 @@
  * @mail: metro-cpu@hotmail.com
  */
 
+
 .map{
   margin: 25px 15px -32px 15px;
   ul{
@@ -18,7 +19,7 @@
     position: relative;
     margin-bottom: 57px;
     float: left;
-    @each $map in new-york, london, seoul, bangkok, hongkong {
+    @each $map in new-york, london, seoul, bangkok, hongkong { //一维数组循环
       &.#{$map} {
         @include retain-background("h5-map_#{$map}.jpg");
       }
