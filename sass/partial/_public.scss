@@ -29,6 +29,9 @@ html,body{
   overflow-x: hidden;
 }
 
+@include font-face("haettenschweiler",
+         font-files("haettenschweiler.eot", "haettenschweiler.svg", "haettenschweiler.ttf", "haettenschweiler.woff", "haettenschweiler.woff2"));
+
 .mobile-wrap{
   width: $layout-width;
   height: auto;
