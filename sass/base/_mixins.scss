@@ -6,71 +6,71 @@
  * @mail: metro-cpu@hotmail.com
  */
 
-
 /*
- * @description:用于生成retina下的图片精灵
+ *@Description:用于生成retina下的图片精灵
+ *retina下使用双倍图，除以2会有出现小数的情况，导致定位不准问题
+ *所以对偏移位置向上取整，
+ *对背景的父层向上取整加一，这样才能保证背景被完全的显示出来
+ *同时因为背景父层的大小已经大于背景实际的尺寸，所以需要在配置中为每一个小图片设置一定的间距，如下：
+ *$line: sprite-map("line/*.png",$spacing: 5px);
  */
 
-@mixin retina-sprite ($map,$sprite,$horizontal: false,$vertical: false) {
+@mixin retina-sprite($map, $sprite, $horizontal: false, $vertical: false) {
 
-  $width: image-width(sprite-file($map, $sprite));
-  $height: image-height(sprite-file($map, $sprite));
-  $offsetY: ceil(nth(sprite-position($map,$sprite),2)/2);
+    $width: image-width(sprite-file($map, $sprite));
+    $height: image-height(sprite-file($map, $sprite));
+    $offsetY: ceil(nth(sprite-position($map,$sprite),2)/2);
 
-  background: sprite-url($map) 0 $offsetY no-repeat;
+    background: sprite-url($map) 0 $offsetY no-repeat;
 
-  $zoomX: ceil(image_width(sprite-path($map))/2);
-  $zoomY: auto;
-  @include background-size($zoomX $zoomY);
+    $zoomX: ceil(image_width(sprite-path($map))/2);
+    $zoomY: auto;
+    @include background-size($zoomX $zoomY);
 
-  display: block;
-  width: ceil($width/2);
-  height: ceil($height/2)+1;
+    display: block;
+    width: ceil($width/2);
+    height: ceil($height/2)+1;
 
+    $ifabsolute: true;
 
-  $ifabsolute: true;
+    @if $horizontal {
 
-  @if $horizontal {
+        @if $ifabsolute {
+            position: absolute;
+            $ifabsolute: false;
+        }
 
-    @if $ifabsolute {
-      position: absolute;
-      $ifabsolute: false;
+        @if $horizontal == true {
+            left: 50%;
+            margin-left: -(round($width/4));
+        } @else {
+            left: $horizontal;
+        }
     }
 
-    @if $horizontal == true {
-      left: 50%;
-      margin-left: -(round($width/4));
-    }
-    @else{
-      left: $horizontal;
-    }
-  }
+    @if $vertical {
 
+        @if $ifabsolute {
+            position: absolute;
+            $ifabsolute: false;
+        }
 
-  @if $vertical {
-
-    @if $ifabsolute {
-      position: absolute;
-      $ifabsolute: false;
+        @if $vertical == true {
+            top: 50%;
+            margin-top: -(round($height/4));
+        } @else {
+            top: $vertical;
+        }
     }
-
-    @if $vertical == true {
-      top: 50%;
-      margin-top: -(round($height/4));
-    }
-    @else{
-      top: $vertical;
-    }
-  }
 }
 
 /*
  * @description:用于生成retina下的背景图片
  */
 
-@mixin retain-background ($url) {
-  background: image-url($url) center center no-repeat;
-  $width: image-width($url);
-  @include background-size($width/2 auto);
+@mixin retain-background($url) {
+    background: image-url($url) center center no-repeat;
+    $width: image-width($url);
+    @include background-size($width/2 auto);
 }
 

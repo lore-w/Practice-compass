@@ -1,0 +1,54 @@
+@charset "utf-8";
+/*
+ * @description: 图片精灵DEMO
+ * @author: LrEmo
+ * @date: 2015/10/21.
+ * @mail: metro-cpu@hotmail.com
+ */
+
+.switch-page {
+    margin-top: 35px;
+    height: 20px;
+    position: relative;
+    > span {
+        @include hide-text();
+        cursor: pointer;
+    }
+
+    /*
+     *@Description：图片精灵DEMO
+     *使用sprite()辅助器传入图片精灵名称和小图标的名称
+     *这样使用会为每一个类赋值一次背景图片
+     *比如：
+     *.switch-prev {
+     *    background: url('../images/icons-s943de15a54.png') 0 -70px no-repeat;
+     *}
+     *.switch-next {
+     *    background: url('../images/icons-s943de15a54.png') 0 -358px no-repeat;
+     *}
+     *so?
+     *为了移除重复的背景图片，你可以用sprite-position()辅助器或sprite-background-position()混合器取代sprite()辅助器。
+     *比如：
+     *.switch-base { background: $icons no-repeat; }
+     *.switch-prev {
+     *    @extend .switch-base;
+     *    background-position: sprite-position($icons, prev);
+     *}
+     *or
+     *.switch-next {
+     *    @extend .switch-base;
+     *    @include sprite-background-position($icons,next);
+     *}
+     */
+    .switch-prev {
+        background: sprite($icons, prev) no-repeat;
+
+        @include sprite-dimensions($icons, prev); //设置单个精灵的尺寸
+    }
+
+    .switch-next {
+        background: sprite($icons, next) no-repeat;
+
+        @include sprite-dimensions($icons, next); //设置单个精灵的尺寸
+    }
+}

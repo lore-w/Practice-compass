@@ -5,28 +5,37 @@
  * @date: 2014/12/25.
  * @mail: metro-cpu@hotmail.com
  */
-.switch-page{
-  margin-top: 35px;
-  height: 20px;
-  position: relative;
-  >span{
-    @include hide-text();
-    cursor: pointer;
-  }
-  @each $switch in prev, next {
-    .switch-#{$switch} {
-      @include retina-sprite($icons,#{$switch},false,true);
-    }
-    @if $switch == prev { //if判断例子
-      .switch-#{$switch} {
-        left: 0;
-      }
+.switch-page {
+    margin-top: 35px;
+    height: 20px;
+    position: relative;
+    > span {
+        @include hide-text();
+        cursor: pointer;
     }
 
-    @if $switch == next {
-      .switch-#{$switch} {
-        right: 0;
-      }
+    /*
+     *@Description：@each（一维数组）
+     */
+    @each $switch in prev, next {
+        .switch-#{$switch} {
+            @include retina-sprite($icons, #{$switch}, false, true);
+        }
+
+        /*
+         *@Description：@if
+         */
+        @if $switch == prev {
+            //if判断例子
+            .switch-#{$switch} {
+                left: 0;
+            }
+        }
+
+        @if $switch == next {
+            .switch-#{$switch} {
+                right: 0;
+            }
+        }
     }
-  }
 }

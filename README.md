@@ -1,14 +1,16 @@
-# compass-demo
-compass-练习，涉及compass的大部分模块，可作为参考...
+# compass-教程
+其实是compass-练习，涉及compass的大部分模块，可作为参考...
 
-最近系统的研究了compass的各个模块，力求能写出更简洁的css，所以把开发中使用到的一些功能记录下来，以此作为学习笔记。
+涉及的主要模块如下，每个模块都有a链接指向具体的文件，以及一些简单的注释。
 
-涉及的主要功能有：
 
-1. 雪碧图
-2. base64
-3. each、for循环
-4. 自定义混合器
-5. 分支语句
-6. 自定义字体
-6. ...
+1. [base64](./sass/partial/_edit.scss)
+2. [font-face](./sass/partial/_public.scss)
+3. [@each（一维数组）](./sass/partial/components/_switch-page.scss)
+3.1. [@each（多维数组）](./sass/partial/components/_comment.scss)
+4. [@if](./sass/partial/components/_switch-page.scss)
+4. [@for](./sass/partial/components/_download-app.scss)
+5. sprite（图片精灵）
+5.1 [配置](./sass/base/_sprite.scss)
+5.2 [使用](./sass/demo.scss)
+6. [@mixin](./sass/base/_mixins.scss)

@@ -6,152 +6,181 @@
  * @mail: metro-cpu@hotmail.com
  */
 
-.comment{
-  margin: 25px 15px 0 15px;
-  >ul{
-    @include hide-text();
-    margin: 0 5px 30px 5px;
-    >li{
-      float: left;
-      width: 25%;
-      height: 30px;
-      position: relative;
-      &:nth-last-of-type(1) {
-        &:before{
-          display: block;
-          content: '';
-          border-left: 1px solid #000;
-          width: 1px;
-          height: 100%;
-          position: absolute;
-          top: 0;
-          left: 0;
+.comment {
+    margin: 25px 15px 0 15px;
+    > ul {
+        @include hide-text();
+        margin: 0 5px 30px 5px;
+        > li {
+            float: left;
+            width: 25%;
+            height: 30px;
+            position: relative;
+            &:nth-last-of-type(1) {
+                &:before {
+                    display: block;
+                    content: '';
+                    border-left: 1px solid #000;
+                    width: 1px;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+            /*
+             *@Description：@each（多维数组）
+             */
+            @each $i, $isLike in (1: smile, 2: nothing, 3: bad, 4: comment) {
+                &:nth-of-type(#{$i}) {
+                    a {
+                        @include retina-sprite($icons, #{$isLike}, true, 0);
+                    }
+                }
+            }
+            // or
+            /*@each $channelColor, $channelTitle in (fashion, #9b90ff),
+                    (beauty, #ffcaca),
+                    (beauty-detail, #ffcaca),
+                    (sport, #84e3ca),
+                    (lifestyle, #ffca72),
+                    (magazine, #7ecaff),
+                    (video, #c9caca) {
+
+                ##{$channelColor} {
+                    //各频道角标颜色
+                    .img-link {
+                        &:after {
+                            @include retina-sprite($icons, channel-#{$channelColor});
+                        }
+                    }
+
+                    //各频道主副标题颜色
+                    .content-item {
+
+                        > h2, h3 {
+                            color: $channelTitle;
+                        }
+                    }
+                }
+            }*/
         }
-      }
-      @each $i, $isLike in (1: smile, 2: nothing, 3: bad, 4: comment) { //多维数组循环
-        &:nth-of-type(#{$i}) {
-          a{
-            @include retina-sprite($icons,#{$isLike},true,0);
-          }
+    }
+    .publish {
+        margin-top: 25px;
+        border: 1px solid #000;
+        .publish-area {
+            height: 54px;
+            border-bottom: 1px solid #000;
+            > textarea {
+                width: 100%;
+                height: 100%;
+                max-width: 100%;
+                max-height: 100%;
+                border: none;
+                background: none;
+                outline: none;
+                font-size: 1.4rem;
+                color: #999;
+                @include box-sizing();
+                padding: 10px 12px;
+            }
         }
-      }
+        .publish-info {
+            height: 54px;
+            position: relative;
+            &:before {
+                content: '';
+                @include retina-sprite($icons, user-default, 8px, true);
+            }
+            .publish-btn {
+                @include retina-sprite($icons, buy, false, true);
+                right: 0;
+                line-height: 34px;
+                text-align: center;
+                font-size: 1.8rem;
+                color: #fff;
+            }
+        }
     }
-  }
-  .publish{
-    margin-top: 25px;
-    border: 1px solid #000;
-    .publish-area{
-      height: 54px;
-      border-bottom: 1px solid #000;
-      >textarea{
-        width: 100%;
-        height: 100%;
-        max-width: 100%;
-        max-height: 100%;
-        border: none;
-        background: none;
-        outline: none;
-        font-size: 1.4rem;
-        color: #999;
-        @include box-sizing();
-        padding: 10px 12px;
-      }
+    .comment-page {
+        margin-top: 44px;
+        height: 16px;
+        line-height: 16px;
+        position: relative;
+        &:before {
+            content: '';
+            @include retina-sprite($icons, comment-prev, false, true);
+            left: 0;
+        }
+        &:after {
+            content: '';
+            @include retina-sprite($icons, comment-next, false, true);
+            right: 0;
+        }
+        span {
+            &:nth-of-type(1) {
+                float: left;
+                margin-left: 20px;
+            }
+            &:nth-of-type(2) {
+                float: right;
+                margin-right: 20px;
+            }
+        }
     }
-    .publish-info{
-      height: 54px;
-      position: relative;
-      &:before{
-        content: '';
-        @include retina-sprite($icons,user-default,8px,true);
-      }
-      .publish-btn{
-        @include retina-sprite($icons,buy,false,true);
-        right: 0;
-        line-height: 34px;
-        text-align: center;
-        font-size: 1.8rem;
-        color: #fff;
-      }
-    }
-  }
-  .comment-page{
-    margin-top: 44px;
-    height: 16px;
-    line-height: 16px;
-    position: relative;
-    &:before{
-      content: '';
-      @include retina-sprite($icons,comment-prev,false,true);
-      left: 0;
-    }
-    &:after{
-      content: '';
-      @include retina-sprite($icons,comment-next,false,true);
-      right: 0;
-    }
-    span{
-      &:nth-of-type(1){
-        float: left;
-        margin-left: 20px;
-      }
-      &:nth-of-type(2){
-        float: right;
-        margin-right: 20px;
-      }
-    }
-  }
 }
 
-.comment-list{
-  ul{
-    width: 100%;
-  }
-  li{
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 18px;
-    margin-bottom: 10px;
-    .comment-user-pic{
-      width: 40px;
-      height: 40px;
-      position: relative;
-      float: left;
-      img{
+.comment-list {
+    ul {
         width: 100%;
-        height: 100%;
-        display: block;
-        overflow: hidden;
-      }
     }
-    @each $comment-user in comment-qq, comment-weibo, comment-yoho {
-      .#{$comment-user} {
-        &:after{
-          content: '';
-          @include retina-sprite($icons,#{$comment-user},false,false);
-          position: absolute;
-          right: -5px;
-          bottom: -2px;
+    li {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 18px;
+        margin-bottom: 10px;
+        .comment-user-pic {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            float: left;
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                overflow: hidden;
+            }
         }
-      }
+        @each $comment-user in comment-qq, comment-weibo, comment-yoho {
+            .#{$comment-user} {
+                &:after {
+                    content: '';
+                    @include retina-sprite($icons, #{$comment-user}, false, false);
+                    position: absolute;
+                    right: -5px;
+                    bottom: -2px;
+                }
+            }
+        }
+        .comment-info {
+            overflow: hidden;
+            padding-left: 15px;
+            > span {
+                font-weight: bold;
+            }
+            > p {
+                font-size: 1.4rem;
+                line-height: 20px;
+                margin-top: 10px;
+            }
+        }
     }
-    .comment-info{
-      overflow: hidden;
-      padding-left: 15px;
-      >span{
-        font-weight: bold;
-      }
-      >p{
+    .view-more {
+        text-align: center;
         font-size: 1.4rem;
-        line-height: 20px;
-        margin-top: 10px;
-      }
+        margin-top: 20px;
+        display: block;
+        width: 100%;
+        font-weight: bold;
     }
-  }
-  .view-more{
-    text-align: center;
-    font-size: 1.4rem;
-    margin-top: 20px;
-    display: block;
-    width: 100%;
-    font-weight: bold;
-  }
 }

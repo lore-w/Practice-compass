@@ -7,10 +7,28 @@
  */
 
 
-
+/*
+ *@Description：图片精灵
+ *$line是图片精灵的名称（user命名）
+ *sprite-map图片精灵函数
+ *line/*.png表示line文件夹下的png图片
+ *这里的line/*.png不是完整的图片路径，因为在config.rb里配置了images_dir = "images"
+ *$spacing每个小图片周围的间距，如果是某个小图周围的间距可以在spacing前加上小图的名字
+ *如：$fashion-spacing: 8px
+ *配置列表：
+ *$repeat: no-repeat/repeat-x;
+ *$position: 0px;调整了精灵地图中精灵的横向位置，这个值可以是百分比，也可以是像素值。
+ *$layout: vertical/horizontal/diagonal/smart;
+ *clean-up: true/false
+ *$sprite-dimensions: true/false;测量每张精灵图片并为其精灵类的宽和高赋值
+ *
+ *$disable-magic-sprite-selectors: true/false;
+ *魔术精灵选择器是默认开启的，也就是说Compass在精灵时会根据以“_hover”“_active”
+ *或_target结尾的名字自动输出 CSS的:hover、 :active和:target伪选择器。
+ *
+ */
 $line: sprite-map("line/*.png",$spacing: 5px);
 
 $icons: sprite-map("icons/*.png",$spacing: 5px);
 
 $side-bar: sprite-map("side-bar/*.png",$spacing: 5px);
-
